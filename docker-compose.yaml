@@ -1,0 +1,29 @@
+services:
+  nestjs:
+    build: ./nestjs-maps
+    ports: 
+      - "3000:3000"
+      - "5555:5555"
+    volumes:
+      - ./nestjs-maps:/home/node/app:z  
+
+  nextjs:
+    build: ./nextjs-maps
+    ports:
+      - "3001:3001"
+    volumes:
+      - ./nextjs-maps:/home/node/app:z 
+
+  db:
+    image: bitnami/mongodb:8.0.3
+    volumes:
+      - mongodb_data:/bitnami/mongodb
+    environment:
+      MONGODB_ROOT_PASSWORD: root
+      MONGODB_REPLICA_SET_MODE: primary
+      MONGODB_REPLICA_SET_KEY: 123456
+      MONGODB_DATABASE: nest
+
+volumes:
+  mongodb_data:
+    driver: local

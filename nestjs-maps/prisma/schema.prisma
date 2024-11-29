@@ -22,6 +22,7 @@ model Route {
   updated_at  DateTime @updatedAt
   distance    Float
   duration    Float
+  directions  Json
 }
 
 type Place {

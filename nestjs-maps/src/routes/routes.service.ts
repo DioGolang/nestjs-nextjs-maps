@@ -8,7 +8,28 @@ export class RoutesService {
   constructor(private prismaService: PrismaService) {}
 
   create(createRouteDto: CreateRouteDto) {
-    return 'This action adds a new route';
+    this.prismaService.route.create({
+      data: {
+        name: createRouteDto.name,
+        source: {
+          name: 'nome da origem',
+          location: {
+            lat: 0,
+            lng: 0,
+          },
+        },
+        destination: {
+          name: 'nome destination',
+          location: {
+            lat: 0,
+            lng: 0,
+          },
+        },
+        distance: 0,
+        duration: 0,
+        directions: {},
+      },
+    });
   }
 
   findAll() {

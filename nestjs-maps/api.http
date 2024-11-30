@@ -1,0 +1,19 @@
+### GET
+GET http://localhost:3000/routes
+
+
+### POST
+POST http://localhost:3000/routes
+Content-Type: application/json
+
+{
+  "name": "rota test",
+  "source_id": "11111",
+  "description_id": "22222"
+}
+
+### GET
+GET http://localhost:3000/places?text=belo horizonte, mg
+
+### GET
+GET http://localhost:3000/directions?originId=ChIJmx-wX0rCpgARjxH_rJ8d5do?destinationId=ChIJMyzPysqQpgARlznSOl55NVs

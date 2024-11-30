@@ -8,7 +8,7 @@ export class RoutesService {
   constructor(private prismaService: PrismaService) {}
 
   create(createRouteDto: CreateRouteDto) {
-    this.prismaService.route.create({
+    return this.prismaService.route.create({
       data: {
         name: createRouteDto.name,
         source: {
@@ -33,7 +33,7 @@ export class RoutesService {
   }
 
   findAll() {
-    return `This action returns all routes`;
+    return this.prismaService.route.findMany();
   }
 
   findOne(id: number) {
